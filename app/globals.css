@@ -1,0 +1,519 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-zoomIn {
+  animation: zoomIn 2s ease-out forwards;
+}.intro-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 80px;
+}
+.intro-title {
+  font-size: 46px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffd700, #ffb700, #ff8c00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 10px rgba(255, 200, 0, 0.6),
+               0 0 20px rgba(255, 170, 0, 0.5),
+               0 0 40px rgba(255, 140, 0, 0.4);             
+}
+.intro-subtitle {
+  font-size: 18px;
+  background: linear-gradient(90deg, #ffd700, #ffb700);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+
+  text-shadow: 0 0 8px rgba(255, 200, 0, 0.5);
+}
+/* tablet */
+@media (min-width: 768px) {
+  .intro-title {
+    font-size: 64px;
+  }
+
+  .intro-subtitle {
+    font-size: 22px;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  .intro-title {
+    font-size: 80px;
+  }
+
+  .intro-subtitle {
+    font-size: 26px;
+  }
+}
+.intro-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 80px;
+
+  background: radial-gradient(circle at 50% 30%, rgba(255,140,0,0.25), transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(255,180,0,0.15), transparent 60%),
+              linear-gradient(135deg, #0a0a0a 0%, #1a0d05 50%, #000000 100%);
+}
+
+
+/* ===== FINAL INTRO DESIGN LOCKED ===== */
+/* Iske upar ka code change na karein */
+
+
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(255,140,0,0.25), transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(255,180,0,0.2), transparent 60%),
+              linear-gradient(135deg, #0a0a0a 0%, #1a0d05 50%, #000000 100%);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+.top-bar {
+  position: relative;
+}
+
+.top-bar::after {
+  content: "";
+  position: absolute;
+
+  left: 250px;   /* sidebar ki width jitni hai */
+  right: 20px;   /* right side gap */
+
+  bottom: 2px;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245,193,108,0.2) 20%,
+    #f5c16c 50%,
+    rgba(245,193,108,0.2) 80%,
+    transparent 100%
+  );
+
+  box-shadow: 0 0 12px rgba(245,193,108,0.8);
+}
+
+@media (max-width: 767px) {
+  .top-bar::after {
+    display: none !important;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .top-bar::after {
+    bottom: -12px;   /* thora neeche */
+  }
+}
+
+
+
+
+
+
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #f5c16c, #ff9f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* Tablet */
+@media (min-width: 640px) {
+  .logo {
+    font-size: 28px;
+  }
+}
+/* Desktop */
+@media (min-width: 1024px) {
+  .logo {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    margin-left: 225px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    margin-left: 225px;
+  }
+}
+
+
+
+
+
+
+/* ===== FINAL IRAM NEXUS LOGO DASHBOARD ===== */
+/* Iske upar ka code change na karein */
+
+
+
+
+
+
+.top-bar {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.connect-btn {
+  padding: 4px 22px;
+  font-size: 12px;
+  border-radius: 8px;
+  border: 1px solid #f5c16c;
+  background: linear-gradient(180deg, rgba(255,180,0,0.15), rgba(0,0,0,0.6));
+  color: #f5c16c;
+  box-shadow: 0 0 10px rgba(255,180,0,0.4);
+  transition: all 0.3s ease;  
+}
+
+.connect-btn:hover {
+  transform: translateY(-2px); /* halka upar move */
+
+  background: linear-gradient(180deg, rgba(255,200,0,0.3), rgba(0,0,0,0.7));
+  box-shadow: 0 0 15px rgba(255,200,0,0.6);
+}
+
+@media (min-width: 640px) {
+  .connect-btn {
+    padding: 6px 30px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .connect-btn {
+    padding: 10px 46px;
+    font-size: 16px;
+  }
+}
+
+
+
+
+
+
+
+/* ===== FINAL CONNECT WALLET BUTTON DASHBOARD ===== */
+/* Iske upar ka code change na karein */
+
+
+
+
+
+
+
+
+.prize-card {
+  margin-top: 70px ;
+  padding: 10px;
+  width: 240px;
+
+  border-radius: 20px;
+  border: 1.6px solid rgba(255, 200, 120, 0.8);
+
+  background: linear-gradient(180deg, rgba(255,180,0,0.15), rgba(0,0,0,0.7));
+  box-shadow:
+  0 0 15px rgba(250, 163, 48, 0.4),
+  0 6px 12px rgba(233, 199, 7, 0.6);
+  animation: glowPulse 3s ease-in-out infinite;
+
+  text-align: center;
+}
+
+@media (max-width: 639px) {
+  .prize-card {
+    margin-left: 28px;
+  }
+}
+
+@media (min-width: 768px) {
+  .prize-card {
+    display: none;
+  }
+}
+
+.prize-title {
+  font-size: 12px;
+  color: #f5c16c;
+  margin-bottom: 10px;
+}
+
+.prize-amount {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 2px;
+  font-family: 'Georgia', serif;
+  color: #fff5d0;
+  text-shadow: 0 0 10px rgba(255, 220, 120, 0.6);
+}
+
+.main-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* horizontal center */
+  justify-content: flex-start;
+}
+
+/* Default (mobile) → show */
+.prize-card {
+  display: block;
+}
+
+/* Tablet + Desktop → hide */
+@media (min-width: 640px) {
+  .prize-card {
+    display: none;
+  }
+}
+
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px rgba(255, 170, 60, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 180, 80, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(255, 170, 60, 0.3);
+  }
+}
+
+.prize-title {
+  display: inline-block;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  border: .2px solid rgba(255, 200, 120, 0.7);
+
+  color: #f5c16c;
+  font-size: 12px;
+  font-weight: bold;
+
+  box-shadow: 0 0 10px rgba(255, 180, 80, 0.4);
+}
+
+
+
+
+
+
+
+/* ===== FINAL PRIZE CARD DASHBOARD ===== */
+/* Iske upar ka code change na karein */
+
+
+
+
+
+
+
+
+
+
+.profile-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 15px 20px;
+}
+
+.profile-icon img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+
+  border: 2px solid #f5c16c;
+  box-shadow: 0 0 10px rgba(255,180,80,0.6);
+}
+
+.profile-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #f5c16c;
+}
+
+@media (min-width: 768px) {
+  .profile-icon {
+    position: absolute;
+    top: 10px;     /* yahan adjust karo */
+    left: 15px;    /* thora andar lane ke liye */
+  }
+}
+
+
+
+
+
+
+
+
+/* ===== FINAL PROFILE ICON DASHBOARD ===== */
+/* Iske upar ka code change na karein */
+
+
+
+
+
+
+
+
+
+
+
+
+.divider {
+  width: 85%;
+  height: 1px;
+  margin: 80px auto 20px;
+
+  background: linear-gradient(90deg, transparent, #f5c16c, transparent);
+  box-shadow: 0 0 10px rgba(255,180,80,0.7);
+}
+
+@media (min-width: 1024px) {
+  .divider {
+    margin: 100px auto 20px;   /* value adjust karo */
+  }
+}
+
+
+
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 14px 40px;
+  margin: 4px 0px;
+
+  font-size: 14px;
+  color: #e6c27a;
+
+  border-radius: 10px;
+  transition: 0.3s;
+  border-bottom: 1px solid rgba(255, 180, 80, 0.2); /* 👈 ye add karo */
+}
+
+.menu li:hover {
+  background: rgba(255, 180, 80, 0.08);
+  box-shadow: 0 0 12px rgba(255, 180, 80, 0.25);
+  color: #f5c16c;
+  text-shadow: 
+    0 0 8px rgba(255, 200, 100, 1),
+    0 0 16px rgba(255, 180, 80, 0.8);
+}
+
+.menu li {
+  position: relative;
+}
+
+.menu li::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 1px;
+
+  background: linear-gradient(90deg, transparent, #f5c16c, transparent);
+  box-shadow: 0 0 6px rgba(255,180,80,0.6);
+}
+
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  position: relative;
+  align-items: flex-start;
+  margin-top: -5px;
+  left: 0;
+
+  background: linear-gradient(180deg, rgba(30,15,5,0.95), rgba(10,5,2,0.95));
+  border-right: 1px solid rgba(255, 180, 80, 0.3);
+
+  box-shadow: 
+    0 0 30px rgba(255, 150, 50, 0.2),
+    inset 0 0 20px rgba(255, 150, 50, 0.05);
+
+  backdrop-filter: blur(12px);
+
+  padding-top: 20px;
+}
+
+.sidebar {
+  display: none !important;
+}
+
+/* Tablet + Desktop */
+@media (min-width: 768px) {
+  .sidebar {
+    display: block !important;
+  }
+}
+
+
+
+/* ===== FINAL SIDEBAR DASHBOARD ===== */
+/* Iske upar ka code change na karein */
+
+
+
+
+
+
+
+
+

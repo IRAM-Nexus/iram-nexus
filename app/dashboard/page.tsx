@@ -2,6 +2,7 @@
 import { useState } from "react";
 export default function Dashboard() {
   const [open, setOpen] = useState(false);
+  const [balance, setBalance] = useState(120);
   return (
     <div className="main-container">
       {open && <div className="overlay" onClick={() => setOpen(false)}></div>}
@@ -22,6 +23,9 @@ export default function Dashboard() {
         <div className="prize-title">PRIZE POOL</div>
         <h2 className="prize-amount">$10,000.00</h2>
       </div>
+      <div className="balance-bar">
+  Balance: {balance} IRAM - Rank: Gold
+</div>
       <div className={`sidebar ${open ? "show" : ""}`}>
   <div className="profile-icon">
   <img src="https://via.placeholder.com/50" alt="profile" />

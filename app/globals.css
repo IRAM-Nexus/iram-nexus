@@ -560,7 +560,7 @@ body {
   height: 100vh;
   position: relative;
   align-items: flex-start;
-  margin-top: -5px;
+  margin-top: -20px;
   left: 0;
 
   background: linear-gradient(180deg, rgba(30,15,5,0.95), rgba(10,5,2,0.95));
@@ -579,6 +579,8 @@ body {
 
 
 
+
+
 /* Tablet + Desktop */
 @media (min-width: 768px) {
   .sidebar {
@@ -591,6 +593,27 @@ body {
   }
 }
 
+
+/* ===== MOBILE ===== */
+@media (max-width: 767px) {
+  .sidebar {
+    margin-top: -40px; /* mobile adjust */
+  }
+}
+
+/* ===== TABLET ===== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidebar {
+    margin-top: -10px; /* tablet adjust */
+  }
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 1024px) {
+  .sidebar {
+    margin-top: -4px; /* desktop clean */
+  }
+}
 
 
 
@@ -678,4 +701,36 @@ body {
 
 .sidebar {
   z-index: 1001;
+}
+
+
+
+
+
+
+
+
+
+
+
+.balance-bar {
+display: block;
+text-align: center;
+width: 100%;
+  margin-top: 12px;
+  font-size: 14px;
+  color: #f5d98b;   /* soft gold */
+  opacity: 0.85;
+  padding-right: 0;
+  
+
+
+  /* glow halka karo */
+  text-shadow: 0 0 4px rgba(255, 215, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+  .balance-bar {
+    display: none;
+  }
 }

@@ -4,6 +4,7 @@ export default function Dashboard() {
     <div className="main-container">
 
       <div className="top-bar">
+        <span className="menu-icon">☰</span>
         <h1 className="logo">IRAM Nexus</h1>
         <button className="connect-btn">
     Connect

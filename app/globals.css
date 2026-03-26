@@ -148,8 +148,12 @@ body {
 
 
 .logo {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
+  position: relative;
+  margin-left: 25px;
+  left: 0;
+  top: -3px;
   background: linear-gradient(90deg, #f5c16c, #ff9f00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -169,15 +173,34 @@ body {
 
 @media (min-width: 768px) {
   .logo {
-    margin-left: 225px;
+    margin-left: 260px;
   }
 }
 
 @media (min-width: 1024px) {
   .logo {
-    margin-left: 225px;
+    margin-left: 260px;
+    
+
   }
 }
+
+@media (max-width: 640px) {
+  .logo {
+    left: -50px;   /* 👈 is value ko adjust karna */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .top-bar {
+    left: 260px;
+  }
+}
+
+
+
+
+
 
 
 
@@ -204,9 +227,10 @@ body {
 }
 
 .connect-btn {
-  padding: 4px 22px;
+  padding: 4px 20px;
   font-size: 12px;
   border-radius: 8px;
+  margin-right: 6px;
   border: 1px solid #f5c16c;
   background: linear-gradient(180deg, rgba(255,180,0,0.15), rgba(0,0,0,0.6));
   color: #f5c16c;
@@ -235,7 +259,12 @@ body {
   }
 }
 
-
+@media (max-width: 639px) {
+  .connect-btn {
+    position: relative;
+    left: 12px;
+  }
+}
 
 
 
@@ -570,3 +599,15 @@ body {
 
 
 
+.menu-icon {
+  position: relative;
+  left: -8px;
+  top: -3px;
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+}

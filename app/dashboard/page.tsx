@@ -1,10 +1,15 @@
 "use client";
 import { useState } from "react";
+import Sidebar from "../components/layout/Sidebar";
 export default function Dashboard() {
+
   const [open, setOpen] = useState(false);
-  const [balance, setBalance] = useState(120);
+const [balance, setBalance] = useState(120);
+
+
   return (
     <div className="main-container">
+      <Sidebar open={open} />
       {open && <div className="overlay" onClick={() => setOpen(false)}></div>}
 
       <div className="top-bar">
@@ -23,31 +28,8 @@ export default function Dashboard() {
         <div className="prize-title">PRIZE POOL</div>
         <h2 className="prize-amount">$10,000.00</h2>
       </div>
-      <div className="balance-bar">
-  Balance: {balance} IRAM - Rank: Gold
-</div>
-      <div className={`sidebar ${open ? "show" : ""}`}>
-  <div className="profile-icon">
-  <img src="https://via.placeholder.com/50" alt="profile" />
-</div>
-
-<div className="divider"></div>
-
-  <ul className="menu">
-    <li>Profile</li>
-    <li>Notifications</li>
-    <li>IRAM Pulse</li>
-    <li>Daily Tasks</li>
-    <li>Create Tasks</li>
-    <li>Rewards</li>
-    <li>Support</li>
-    <li>Policy</li>
-    <li>About</li>
-  </ul>
-
-</div>
-
-
-    </div>
+      
+  
+      </div>
   );
 }

@@ -28,8 +28,22 @@ const [balance, setBalance] = useState(120);
         <div className="prize-title">PRIZE POOL</div>
         <h2 className="prize-amount">$10,000.00</h2>
       </div>
+      <div className="balance-bar">
+    Balance: 120 IRAM - Rank: Gold
+  </div>
+
+  <div className="follow-card">
+  <div className="follow-left">
+  <span>Follow</span>
+  <span className="x-text">𝕏</span>
+</div>
+
+<div className="follow-right">
+  <span>5 IRAM</span>
+  <button className="claim-btn">Claim</button>
+</div>
+</div>
+</div>
       
-  
-      </div>
   );
 }

@@ -43,6 +43,21 @@ const [balance, setBalance] = useState(120);
   <button className="claim-btn">Claim</button>
 </div>
 </div>
+
+{/* Join Telegram */}
+  <div className="follow-card telegram-card">
+
+  <div className="follow-left">
+    <span>Join TG&nbsp;&nbsp;&nbsp;</span>
+  </div>
+
+  <div className="follow-right">
+    <span className="reward">3 IRAM</span>
+    <button className="claim-btn">Claim</button>
+  </div>
+
+</div>
+
 </div>
       
   );

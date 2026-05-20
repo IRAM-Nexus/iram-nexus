@@ -2,16 +2,25 @@ export default function Sidebar({ open }: { open: boolean }) {
   return (
     <div className={`sidebar ${open ? "show" : ""}`}>
       
-      <div className="profile-icon">
+      <div 
+  className="profile-icon"
+  onClick={() => window.location.href='/profile'}
+>
         <img src="https://via.placeholder.com/50" alt="profile" />
       </div>
 
       <div className="divider"></div>
 
       <ul className="menu">
-        <li>Profile</li>
-        <li>Notifications</li>
-        <li>IRAM Pulse</li>
+        <li onClick={() => window.location.href='/profile'}>
+  Profile
+</li>
+        <li onClick={() => window.location.href='/notifications'}>
+  Notifications
+</li>
+        <li onClick={() => window.location.href='/pulse'}>
+  IRAM Pulse
+</li>
         <li>Daily Tasks</li>
         <li>Create Tasks</li>
         <li>Rewards</li>

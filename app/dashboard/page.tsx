@@ -8,7 +8,7 @@ const [balance, setBalance] = useState(120);
 
 
   return (
-    <div className="main-container">
+    <div className="dashboard-page main-container">
       <Sidebar open={open} />
       {open && <div className="overlay" onClick={() => setOpen(false)}></div>}
 

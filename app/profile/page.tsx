@@ -31,6 +31,8 @@ export default function ProfilePage() { const {
 } = useAccount();
    const router = useRouter();
 
+   const [showVerifyPopup, setShowVerifyPopup] = useState(false);
+
 
 
 
@@ -70,6 +72,51 @@ const [shareOpen, setShareOpen] =
 
 const [mounted, setMounted] =
   useState(false);
+const [bio, setBio] = useState(
+  "Web3 enthusiast • Early believer in decentralized future. Exploring, building and growing in the IRAM ecosystem."
+);
+
+const [web3Explorer, setWeb3Explorer] =
+useState(false);
+
+const [showWeb3Popup,
+  setShowWeb3Popup] =
+  useState(false);
+
+  const [earlySupporter,
+  setEarlySupporter] =
+  useState(false);
+
+const [showEarlyPopup,
+  setShowEarlyPopup] =
+  useState(false);
+  
+
+  const joinedEarly = false;
+
+const active18Days = false;
+
+const holds30IRAM = false;
+
+const [iramCommunity,
+  setIramCommunity] =
+  useState(false);
+
+const [showCommunityPopup,
+  setShowCommunityPopup] =
+  useState(false);
+
+  const dailyPosts = 0;
+
+const streakDays = 0;
+
+const inactiveDays = 0;
+
+
+
+const [bioOpen, setBioOpen] =
+useState(false);
+
   const [joinDate, setJoinDate] =
   useState("");
 
@@ -113,9 +160,29 @@ const [selectedActivity,
 const [unreadCount, setUnreadCount] =
 useState(0);
 
+const [isMobile, setIsMobile] =
+useState(false);
+
+const [mountedView, setMountedView] =
+useState(false);
+
+
+const isOwnProfile = true;
+
 
 
 useEffect(() => {
+
+
+  setMountedView(true);
+
+if (window.innerWidth <= 768) {
+
+  setIsMobile(true);
+
+}
+
+ 
 
   setMounted(true);
 
@@ -175,6 +242,15 @@ localStorage.getItem("twitter");
 
 const savedTelegram =
 localStorage.getItem("telegram");
+
+const savedBio =
+localStorage.getItem("profileBio");
+
+if (savedBio) {
+
+  setBio(savedBio);
+
+}
 
 
 const savedActivities =
@@ -284,6 +360,64 @@ if (isConnected) {
   }
 }
 
+const profileComplete =
+  name &&
+  twitter &&
+  telegram &&
+  bio &&
+  image;
+
+const hasInvite = true;
+
+const boughtIRAM = true;
+
+if (
+  isConnected &&
+  profileComplete &&
+  hasInvite &&
+  boughtIRAM
+) {
+
+  setWeb3Explorer(true);
+
+  const joinedEarly = false;
+
+const active18Days = false;
+
+const holds30IRAM = false;
+
+setEarlySupporter(
+
+  joinedEarly &&
+
+  active18Days &&
+
+  holds30IRAM
+
+);
+
+}
+
+
+
+if (
+
+  dailyPosts >= 3 &&
+
+  streakDays >= 30 &&
+
+  inactiveDays < 7
+
+) {
+
+  setIramCommunity(true);
+
+} else {
+
+  setIramCommunity(false);
+
+}
+
 setLoading(false);
 
 }, []);
@@ -324,8 +458,10 @@ const addActivity = (
     JSON.stringify(updatedActivities)
   );
 };
-
+if (!mountedView) return null;
   return (
+    <>
+    {!isMobile && (
     <div className="profile-page">
 
       {/* TOP BAR */}
@@ -367,7 +503,10 @@ const addActivity = (
 
             <div className="name-row">
               <h2>{name}</h2>
-              <div className="verify-wrapper">
+              <div
+  className="verify-wrapper"
+  onClick={() => setShowVerifyPopup(!showVerifyPopup)}
+>
 
   <BadgeCheck
     className={
@@ -645,13 +784,6 @@ if (!alreadyFollowed) {
 
 <div
   className="activity-card glow-box"
-  onClick={() => {
-
-    setActivityOpen(true);
-
-    setUnreadCount(0);
-
-  }}
 >
 
   <div className="activity-summary">
@@ -677,14 +809,27 @@ if (!alreadyFollowed) {
 
     {unreadCount > 0 && (
 
-      <div className="activity-badge">
+  <div className="activity-badge">
 
-        {unreadCount}
+    {unreadCount}
 
-      </div>
+  </div>
 
-    )}
+)}
 
+<button
+  className="view-all-btn"
+
+  onClick={() => {
+
+    setActivityOpen(true);
+
+    setUnreadCount(0);
+
+  }}
+>
+  View All
+</button>
   </div>
 
 </div>
@@ -801,15 +946,7 @@ localStorage.setItem(
 </div>
 
 )}
-{copied && (
 
-  <div className="copy-toast">
-
-  Wallet Copied ✓
-
-</div>
-
-)}
 
 
 {linkCopied && (
@@ -1043,8 +1180,1094 @@ setTimeout(() => {
 )}
 
     </div>
-  );
-}
+
+)}
+{copied && (
+
+  <div className="copy-toast">
+
+  Wallet Copied ✓
+
+</div>
+
+)}
 
 
+
+
+{isMobile && (
+
+<div className="mobile-profile">
+
+
+
+<div className="mobile-profile-card">
+
+  <div className="mobile-user-top">
+
+    <div className="mobile-avatar-ring">
+
+      <img
+        src={image}
+        alt="profile"
+        className="mobile-avatar"
+      />
+
+    </div>
+
+    <div className="mobile-user-info">
+
+      <div className="mobile-name-row">
+
+        <h2>{name}</h2>
+
+       <div
+  className="verify-wrapper"
+  onClick={() =>
+    setShowVerifyPopup(!showVerifyPopup)
+  }
+>
+
+  <BadgeCheck
+    className={
+      followers >= 11000 &&
+      loginDays >= 11 &&
+      monthlyViews >= 11000
+        ? "verify-icon verified"
+        : "verify-icon unverified"
+    }
+    size={22}
+  />
+
+  {showVerifyPopup && (
+
+    <div className="verify-popup">
+
+      <h4>Verification Requirements</h4>
+
+      <p>• 11,000+ Followers</p>
+
+      <p>• 11 Days Continuous Login</p>
+
+      <p>• 11,000 Monthly Post Views</p>
+
+    </div>
+
+  )}
+
+</div>
+
+      </div>
+
+      <div className="mobile-wallet">
+
+  <span>
+    {mounted && isConnected
+      ? `${address?.slice(0,6)}...${address?.slice(-4)}`
+      : "Wallet Not Connected"}
+  </span>
+
+  <Copy
+  size={16}
+
+  style={{
+    cursor: "pointer"
+  }}
+
+  onClick={async () => {
+
+    try {
+
+      await navigator.clipboard.writeText(
+        address || ""
+      );
+
+    } catch {
+
+      const textArea =
+        document.createElement("textarea");
+
+      textArea.value = address || "";
+
+      document.body.appendChild(textArea);
+
+      textArea.select();
+
+      document.execCommand("copy");
+
+      document.body.removeChild(textArea);
+
+    }
+
+    setCopied(true);
+
+    setTimeout(() => {
+
+      setCopied(false);
+
+    }, 2000);
+
+  }}
+/>
+
+</div>
+
+      <div className="mobile-joined">
+
+        <Calendar size={16} />
+
+        <span>
+          Joined {joinDate}
+        </span>
+
+      </div>
+
+      {isOwnProfile ? (
+
+  <button
+    className="mobile-edit-btn"
+    onClick={() => setEditOpen(true)}
+  >
+    Edit Profile
+  </button>
+
+) : (
+
+  <button className="mobile-follow-btn">
+
+    Follow
+
+  </button>
+
+)}
+    </div>
+
+  </div>
+
+
+
+  <div className="mobile-stats">
+
+  <div>
+
+    <Users size={28} />
+
+    <div className="mobile-stats-text">
+      <h3>{profileFollowers}</h3>
+      <p>Followers</p>
+    </div>
+
+  </div>
+
+  <div>
+
+    <Users size={28} />
+
+    <div className="mobile-stats-text">
+      <h3>{following}</h3>
+      <p>Following</p>
+    </div>
+
+  </div>
+
+</div>
+
+</div>
+
+
+
+<div className="mobile-grid">
+
+  {/* invite */}
+
+  <div className="mobile-card">
+
+    <div className="mobile-card-head">
+
+      <Users size={20} />
+
+      <h3>Invite Friends</h3>
+
+    </div>
+
+    <p>
+      Invite your friends and earn IRAM rewards together.
+    </p>
+
+    <button
+      className="mobile-gold-btn"
+      onClick={() => {
+
+        addActivity(
+          "Invited a Friend",
+          "+20 IRAM"
+        );
+
+        setShareOpen(true);
+
+      }}
+    >
+      Invite Now
+    </button>
+
+  </div>
+
+
+
+  {/* referral */}
+
+  <div className="mobile-card">
+
+    <div className="mobile-card-head">
+
+      <Share2 size={20} />
+
+      <h3>Referral Code</h3>
+
+    </div>
+
+    <div className="mobile-referral">
+
+      <span>
+        #{referralCode}
+      </span>
+
+      <Copy
+  size={18}
+
+  style={{ cursor: "pointer" }}
+
+  onClick={() => {
+
+    navigator.clipboard.writeText(
+      referralCode
+    );
+
+    setLinkCopied(true);
+
+    setTimeout(() => {
+
+      setLinkCopied(false);
+
+    }, 2000);
+
+  }}
+/>
+
+    </div>
+
+    <p>
+      Share your code and earn rewards.
+    </p>
+
+  </div>
+
+
+
+  {/* social */}
+
+  <div className="mobile-card">
+
+    <div className="mobile-card-head">
+
+      <ExternalLink size={20} />
+
+      <h3>Social Links</h3>
+
+    </div>
+
+    <a
+      href={`https://x.com/${twitter}`}
+      target="_blank"
+      className="mobile-social"
+    >
+      @{twitter}
+    </a>
+
+    <a
+      href={`https://t.me/${telegram}`}
+      target="_blank"
+      className="mobile-social"
+    >
+      t.me/{telegram}
+    </a>
+
+  </div>
+
+</div>
+
+
+
+<div
+  className="mobile-activity-card"
   
+>
+
+  <div className="mobile-activity-left">
+
+    <Gift size={24} />
+
+    <div>
+
+      <h3>Recent Activity</h3>
+
+      <p>
+        You have {unreadCount}
+        new updates
+      </p>
+
+    </div>
+
+  </div>
+
+  <button
+  className="mobile-view-btn"
+
+  onClick={() => {
+
+    setActivityOpen(true);
+
+    setUnreadCount(0);
+
+  }}
+>
+
+    View All
+
+  </button>
+
+</div>
+
+{activityOpen && (
+
+<div className="activity-modal">
+
+  <div className="activity-popup">
+
+    <div className="popup-top">
+
+      <h2>All Activities</h2>
+
+      <button
+        onClick={() =>
+          setActivityOpen(false)
+        }
+      >
+        Close
+      </button>
+
+    </div>
+
+    <div className="popup-activities">
+
+      {activities.map(
+        (activity, index) => (
+
+          <div
+            className={`popup-activity-item ${
+              readActivities.includes(index)
+                ? "read-activity"
+                : "new-activity"
+            }`}
+            key={index}
+            onClick={() => {
+
+  setSelectedActivity(activity);
+
+  setReadActivities((prev) => {
+
+    const updated = [
+      ...prev,
+      index,
+    ];
+
+    localStorage.setItem(
+      "readActivities",
+      JSON.stringify(updated)
+    );
+
+    return updated;
+
+  });
+
+}}
+          >
+
+            <Gift size={18} />
+
+            <div>
+
+              <h4>{activity.title}</h4>
+
+              <p>{activity.date}</p>
+
+            </div>
+
+          </div>
+
+      ))}
+
+    </div>
+
+  </div>
+{selectedActivity && (
+
+<div className="activity-modal">
+
+  <div className="activity-popup">
+
+    <div className="popup-top">
+
+      <h2>
+        Activity Details
+      </h2>
+
+      <button
+        onClick={() =>
+          setSelectedActivity(null)
+        }
+      >
+        Close
+      </button>
+
+    </div>
+
+    <div className="detail-box">
+
+      <Gift size={32} />
+
+      <h3>
+        {selectedActivity.title}
+      </h3>
+
+      <p>
+        {selectedActivity.date}
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
+</div>
+
+
+
+
+)}
+
+
+
+
+<div className="mobile-about-card">
+
+  <div className="mobile-about-top">
+
+    <h2>About Me</h2>
+
+    <button
+  onClick={() =>
+    setBioOpen(true)
+  }
+>
+  Edit Bio
+</button>
+
+  </div>
+
+  <p>
+    {bio}
+  </p>
+
+  <div className="mobile-tags">
+
+   <span
+  className={
+    web3Explorer
+      ? "active-badge"
+      : "locked-badge"
+  }
+
+  onClick={() =>
+    setShowWeb3Popup(true)
+  }
+>
+
+  {web3Explorer
+    ? "✨ Web3 Explorer"
+    : "🔒 Web3 Explorer"}
+
+</span>
+
+    <span
+  className={
+    earlySupporter
+      ? "early-active"
+      : "early-locked"
+  }
+
+  onClick={() =>
+    setShowEarlyPopup(true)
+  }
+>
+
+  {earlySupporter
+    ? "🌟 Early Supporter"
+    : "🔒 Early Supporter"}
+
+</span>
+
+    <span
+  className={
+    iramCommunity
+      ? "community-active"
+      : "community-locked"
+  }
+
+  onClick={() =>
+    setShowCommunityPopup(true)
+  }
+>
+
+  {iramCommunity
+    ? "👑 IRAM Community"
+    : "🔒 IRAM Community"}
+
+</span>
+
+  </div>
+
+</div>
+
+<div className="mobile-bottom-nav">
+
+  <div
+
+  onClick={() =>
+    router.push("/dashboard")
+  }
+>
+  Dashboard
+</div>
+
+  <div>
+    Explore
+  </div>
+
+  <div>
+    Rewards
+  </div>
+
+  <div>
+    Leaderboard
+  </div>
+
+  <div
+  className="active-nav"
+
+  onClick={() =>
+    router.push("/profile")
+  }
+>
+  Profile
+</div>
+
+</div>
+{editOpen && (
+
+<div className="edit-popup">
+
+  <div className="edit-box">
+
+    <h2>Edit Profile</h2>
+
+    <input
+      type="text"
+      placeholder="Enter Name"
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+    />
+
+    <input
+      type="text"
+      placeholder="X Username"
+      value={twitter}
+      onChange={(e) =>
+        setTwitter(e.target.value)
+      }
+    />
+
+    <input
+      type="text"
+      placeholder="Telegram Username"
+      value={telegram}
+      onChange={(e) =>
+        setTelegram(e.target.value)
+      }
+    />
+
+    <input
+  type="file"
+  accept="image/*"
+
+  onChange={(e) => {
+
+    const file = e.target.files?.[0];
+
+    if (file) {
+
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+
+        const base64String =
+          reader.result as string;
+
+        setImage(base64String);
+
+        localStorage.setItem(
+          "profileImage",
+          base64String
+        );
+
+      };
+
+      reader.readAsDataURL(file);
+
+    }
+
+  }}
+/>
+
+    <div className="popup-buttons">
+
+      <button
+        className="save-btn"
+        onClick={() => {
+
+          localStorage.setItem(
+            "profileName",
+            name
+          );
+
+          localStorage.setItem(
+            "twitter",
+            twitter
+          );
+
+          localStorage.setItem(
+            "telegram",
+            telegram
+          );
+
+          setEditOpen(false);
+
+        }}
+      >
+        Save
+      </button>
+
+      <button
+        className="cancel-btn"
+        onClick={() =>
+          setEditOpen(false)
+        }
+      >
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+)}
+
+{shareOpen && (
+
+<div className="share-modal">
+
+  <div className="share-box">
+
+    <h2>Invite Friends</h2>
+
+    <div className="share-grid">
+
+      <a
+        href={`https://wa.me/?text=https://iramnexus.xyz/invite/${name}`}
+        target="_blank"
+      >
+        <button className="share-btn">
+          <MessageCircle size={26} />
+          WhatsApp
+        </button>
+      </a>
+
+      <a
+        href={`https://t.me/share/url?url=https://iramnexus.xyz/invite/${name}`}
+        target="_blank"
+      >
+        <button className="share-btn">
+          <Send size={26} />
+          Telegram
+        </button>
+      </a>
+
+      <a
+        href={`https://twitter.com/intent/tweet?text=https://iramnexus.xyz/invite/${name}`}
+        target="_blank"
+      >
+        <button className="share-btn">
+          <Bird size={26} />
+          X
+        </button>
+      </a>
+
+
+      <a
+  href={`https://www.facebook.com/sharer/sharer.php?u=https://iramnexus.xyz/invite/${name}`}
+  target="_blank"
+>
+  <button className="share-btn">
+    <BadgeInfo size={26} />
+    Facebook
+  </button>
+</a>
+
+      <button
+        className="share-btn"
+        onClick={() => {
+
+          navigator.clipboard.writeText(
+            `https://iramnexus.xyz/invite/${name}`
+          );
+
+          setLinkCopied(true);
+
+          setTimeout(() => {
+
+            setLinkCopied(false);
+
+          }, 2000);
+
+        }}
+      >
+        <Copy size={26} />
+        Copy
+      </button>
+
+    </div>
+
+    <button
+      className="close-share"
+      onClick={() =>
+        setShareOpen(false)
+      }
+    >
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+
+
+)}
+
+{bioOpen && (
+
+<div className="edit-popup">
+
+  <div className="edit-box">
+
+    <h2>Edit Bio</h2>
+
+    <textarea
+      maxLength={120}
+      value={bio}
+      onChange={(e) =>
+        setBio(e.target.value)
+      }
+      placeholder="Write your bio..."
+      className="bio-textarea"
+    />
+
+    <p className="bio-count">
+      {bio.length}/120
+    </p>
+
+    <div className="popup-buttons">
+
+      <button
+        className="save-btn"
+        onClick={() => {
+
+          localStorage.setItem(
+            "profileBio",
+            bio
+          );
+
+          setBioOpen(false);
+
+        }}
+      >
+        Save
+      </button>
+
+      <button
+        className="cancel-btn"
+        onClick={() =>
+          setBioOpen(false)
+        }
+      >
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
+
+
+{showWeb3Popup && (
+
+<div className="activity-modal">
+
+  <div className="activity-popup">
+
+    <div className="popup-top">
+
+      <h2>
+        Web3 Explorer
+      </h2>
+
+      <button
+        onClick={() =>
+          setShowWeb3Popup(false)
+        }
+      >
+        Close
+      </button>
+
+    </div>
+
+    <div className="detail-box">
+
+      <div className="web3-tasks">
+
+  <div className={`web3-task ${
+    isConnected
+      ? "completed"
+      : "locked"
+  }`}>
+    Wallet Connected
+  </div>
+
+  <div className={`web3-task ${
+    image
+      ? "completed"
+      : "locked"
+  }`}>
+    Profile Picture Added
+  </div>
+
+  <div className={`web3-task ${
+    bio?.length >= 20
+      ? "completed"
+      : "locked"
+  }`}>
+    Bio Added
+  </div>
+
+  <div className={`web3-task ${
+  twitter || telegram
+    ? "completed"
+    : "locked"
+}`}>
+  Social Linked
+</div>
+
+  <div className={`web3-task ${
+  profileFollowers >= 1
+    ? "completed"
+    : "locked"
+}`}>
+  Successful Invite
+</div>
+
+  <div className={`web3-task ${
+  isFollowing
+    ? "completed"
+    : "locked"
+}`}>
+  Buy $10 IRAM
+</div>
+
+</div>
+    </div>
+
+  </div>
+
+</div>
+
+)}
+
+
+
+{showEarlyPopup && (
+
+<div className="activity-modal">
+
+  <div className="activity-popup">
+
+    <div className="popup-top">
+
+      <h2>
+        Early Supporter
+      </h2>
+
+      <button
+        onClick={() =>
+          setShowEarlyPopup(false)
+        }
+      >
+        Close
+      </button>
+
+    </div>
+
+    <div className="detail-box">
+
+      <div className="web3-tasks">
+
+        <div className={`web3-task ${
+          joinedEarly
+            ? "completed"
+            : "locked"
+        }`}>
+          First 5000 Users
+        </div>
+
+        <div className={`web3-task ${
+          active18Days
+            ? "completed"
+            : "locked"
+        }`}>
+          18 Days Active
+        </div>
+
+        <div className={`web3-task ${
+          holds30IRAM
+            ? "completed"
+            : "locked"
+        }`}>
+          Hold $30 Worth IRAM
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
+
+{showCommunityPopup && (
+
+<div className="activity-modal">
+
+  <div className="activity-popup">
+
+    <div className="popup-top">
+
+      <h2>
+        IRAM Community
+      </h2>
+
+      <button
+        onClick={() =>
+          setShowCommunityPopup(false)
+        }
+      >
+        Close
+      </button>
+
+    </div>
+
+    <div className="detail-box">
+
+      <div className="web3-tasks">
+
+        <div className={`web3-task ${
+          dailyPosts >= 3
+            ? "completed"
+            : "locked"
+        }`}>
+          Daily 3 IRAM Posts
+        </div>
+
+        <div className={`web3-task ${
+          streakDays >= 30
+            ? "completed"
+            : "locked"
+        }`}>
+          30 Days Active Posting
+        </div>
+
+        <div className={`web3-task ${
+          inactiveDays < 7
+            ? "completed"
+            : "locked"
+        }`}>
+          Stay Active
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
+
+
+{linkCopied && (
+
+  <div className="copy-toast">
+
+    Link Copied ✓
+
+  </div>
+
+
+
+
+
+)}
+
+</div>
+
+
+
+
+)}
+
+</>
+);
+}

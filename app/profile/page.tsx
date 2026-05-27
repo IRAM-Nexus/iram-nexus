@@ -299,14 +299,14 @@ if (savedActivities) {
   if (savedName) {
     setName(savedName);
   } else {
-    setName("IRAM_Hunter");
+    setName("");
   }
 setTwitter(
-  savedTwitter || "IRAM_Hunter"
+  savedTwitter || ""
 );
 
 setTelegram(
-  savedTelegram || "IRAM_Hunter"
+  savedTelegram || ""
 );
   setImage(
 
@@ -807,15 +807,7 @@ if (!alreadyFollowed) {
 
     </div>
 
-    {unreadCount > 0 && (
-
-  <div className="activity-badge">
-
-    {unreadCount}
-
-  </div>
-
-)}
+    
 
 <button
   className="view-all-btn"
@@ -836,7 +828,102 @@ if (!alreadyFollowed) {
       
 
 
-       
+       {/* ABOUT ME */}
+
+<div className="about-card glow-box">
+
+  <div className="about-top">
+
+    <h2>About Me</h2>
+
+    <button
+      className="about-edit-btn"
+
+      onClick={() =>
+        setBioOpen(true)
+      }
+    >
+      Edit Bio
+    </button>
+
+  </div>
+
+  <p className="about-text">
+
+    {bio}
+
+  </p>
+
+  <div className="badge-row">
+
+{/* WEB3 EXPLORER */}
+
+<div
+  className={`profile-badge ${
+    web3Explorer
+      ? "active-badge"
+      : "locked-badge"
+  }`}
+
+  onClick={() =>
+    setShowWeb3Popup(
+      !showWeb3Popup
+    )
+  }
+>
+
+  🔓 Web3 Explorer
+
+</div>
+
+
+
+{/* EARLY SUPPORTER */}
+
+<div
+  className={`profile-badge ${
+    earlySupporter
+      ? "🌟active-badge"
+      : "locked-badge"
+  }`}
+
+  onClick={() =>
+    setShowEarlyPopup(
+      !showEarlyPopup
+    )
+  }
+>
+
+  ✨ Early Supporter
+
+</div>
+
+{/* IRAM COMMUNITY */}
+
+<div
+  className={`profile-badge ${
+    iramCommunity
+      ? "active-badge"
+      : "locked-badge"
+  }`}
+
+  onClick={() =>
+    setShowCommunityPopup(
+      !showCommunityPopup
+    )
+  }
+>
+
+  🌐 IRAM Community
+
+</div>
+
+</div>
+</div>
+
+
+
+
 
           
 {editOpen && (
@@ -947,6 +1034,64 @@ localStorage.setItem(
 
 )}
 
+
+{bioOpen && (
+
+<div className="edit-popup">
+
+  <div className="edit-box">
+
+    <h2>Edit Bio</h2>
+
+    <textarea
+
+      placeholder="Write something about yourself..."
+
+      value={bio}
+
+      onChange={(e) =>
+        setBio(e.target.value)
+      }
+
+      className="bio-textarea"
+    />
+
+    <div className="popup-buttons">
+
+      <button
+        className="save-btn"
+
+        onClick={() => {
+
+          localStorage.setItem(
+            "profileBio",
+            bio
+          );
+
+          setBioOpen(false);
+
+        }}
+      >
+        Save
+      </button>
+
+      <button
+        className="cancel-btn"
+
+        onClick={() =>
+          setBioOpen(false)
+        }
+      >
+        Cancel
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+)}
 
 
 {linkCopied && (

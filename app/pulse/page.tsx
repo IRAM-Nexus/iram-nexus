@@ -20,8 +20,10 @@ export default function PulsePage() {
 
   return (
 
+<>
+    <div className="desktop-layout">
 
-    <div className="main-layout">
+      <div className="main-layout">
     
 
     <div className="pulse-page">
@@ -716,11 +718,604 @@ export default function PulsePage() {
 
 </div>
 
+{/* SEARCH BAR */}
+
+<div className="top-search-wrap">
+
+  <div className="search-bar">
+
+    <span className="search-icon">
+      🔍
+    </span>
+
+    <input
+      type="text"
+      placeholder="Search coins, topics, people..."
+    />
+
+  </div>
+
+  <button className="trending-btn">
+
+    🔥 Trending
+
+  </button>
+
 </div>
-        </div>
 
-      
+{/* CREATE POST CARD */}
 
+<div className="create-post-card">
+
+  {/* TOP */}
+
+  <div className="create-top">
+
+    <img
+      src="/creator1.png"
+      alt="profile"
+      className="create-avatar"
+    />
+
+    <input
+      type="text"
+      placeholder="What's on your mind?"
+      className="create-input"
+    />
+
+  </div>
+
+  {/* BOTTOM */}
+
+  <div className="create-bottom">
+
+    <div className="create-actions">
+
+      <button>🖼️</button>
+
+      <button>📊</button>
+
+      <button>GIF</button>
+
+      <button>📈</button>
+
+      <button>😊</button>
+
+      <button>#</button>
+
+    </div>
+
+    <button className="post-btn">
+      Post
+    </button>
+
+  </div>
+
+</div>
+{/* TRENDING TOPICS */}
+
+<div className="topics-card">
+
+  <div className="topics-header">
+
+    <h2>Trending Topics</h2>
+
+    <span>View all ›</span>
+
+  </div>
+
+  <div className="topics-wrap">
+
+    <div className="topic-pill">
+      🔥 #IRAMCoin
+    </div>
+
+    <div className="topic-pill">
+      🪙 #BTC
+    </div>
+
+    <div className="topic-pill">
+      💠 #ETH
+    </div>
+
+    <div className="topic-pill">
+      📈 #BullRun
+    </div>
+
+    <div className="topic-pill">
+      🚀 #Altseason
+    </div>
+
+  </div>
+
+</div>
+
+
+{/* EMPTY FEED CARD */}
+
+<div className="empty-feed-card">
+
+  {/* ICON */}
+
+  <div className="empty-icon-wrap">
+
+    <div className="empty-glow"></div>
+
+    <div className="empty-pulse-icon">
+
+      <svg
+        className="feed-pulse-svg"
+        viewBox="0 0 140 70"
+        fill="none"
+      >
+
+        <defs>
+
+          <linearGradient
+            id="feedGoldGradient"
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stopColor="#ffdf7a" />
+            <stop offset="50%" stopColor="#ffb326" />
+            <stop offset="100%" stopColor="#ff8c00" />
+          </linearGradient>
+
+        </defs>
+
+        <path
+          d="
+          M5 38
+          L20 38
+          L32 38
+          L45 14
+          L58 60
+          L74 4
+          L88 52
+          L100 38
+          L118 38
+          L135 38
+          "
+        />
+
+      </svg>
+
+    </div>
+
+  </div>
+
+  {/* TEXT */}
+
+  <h2>Your Pulse Feed is empty</h2>
+
+  <p>
+    Follow creators, explore trending topics
+    and start engaging with the community.
+  </p>
+
+  {/* BUTTON */}
+
+  <button className="explore-btn">
+
+    Explore Trending
+
+  </button>
+
+</div>
+
+
+
+
+{/* EMPTY EVENTS CARD */}
+
+<div className="events-card">
+
+</div>
+
+
+<div className="events-card">
+
+  {/* EMPTY INNER CARD */}
+
+  <div className="event-inner-card">
+
+    <img
+  src="/event1.png"
+  alt="event"
+  className="event-image"
+/>
+
+<button className="join-btn">
+  Join Now →
+</button>
+
+
+
+  </div>
+
+{/* EXPLORE CARD */}
+
+<div className="explore-card">
+
+  <img
+  src="/event2.png"
+  alt="campaign"
+  className="explore-image"
+/>
+
+<button className="explore-join-btn">
+  Join Now →
+</button>
+
+
+
+</div>
+
+{/* REFER NOW CARD */}
+
+<div className="refer-now-card">
+
+  <img
+  src="/event3.png"
+  alt="refer"
+  className="refer-image"
+/>
+
+<button className="refer-btn">
+  Join Now →
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+{/* MOBILE HOME */}
+
+</div>
+
+<div className="mobile-home">
+
+<div className="mobile-topbar">
+
+  <div className="mobile-logo-side">
+
+    
+  <div className="mobile-logo-wrap">
+
+  {/* TEXT FIRST */}
+
+  <h1>
+    <span>IRAM</span>
+    <strong>PULSE</strong>
+  </h1>
+
+
+
+  {/* LOGO AFTER TEXT */}
+
+  <svg
+    className="mobile-pulse-logo"
+    viewBox="0 0 140 70"
+    fill="none"
+  >
+
+    <defs>
+
+      <linearGradient
+        id="mobileGold"
+        x1="0%"
+        y1="0%"
+        x2="100%"
+        y2="0%"
+      >
+        <stop offset="0%" stopColor="#ffdf7a" />
+        <stop offset="50%" stopColor="#ffb326" />
+        <stop offset="100%" stopColor="#ff8c00" />
+      </linearGradient>
+
+    </defs>
+
+    <path
+      d="
+      M5 38
+      L20 38
+      L32 38
+      L45 14
+      L58 60
+      L74 4
+      L88 52
+      L100 38
+      L118 38
+      L135 38
+      "
+      stroke="url(#mobileGold)"
+      strokeWidth="6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+
+  </svg>
+
+  
+
+</div>
+<p className="mobile-subtext">
+  The Web3 Social Hub of IRAM Nexus
+</p>
+  </div>
+
+<div className="mobile-top-right">
+
+    <div className="mobile-bell">
+
+      <Bell size={28} strokeWidth={2.2}/>
+
+      <span className="mobile-badge">
+        3
+      </span>
+
+    
+      </div>
+      </div>
+
+
+
+
+</div>
+
+{/* SEARCH BAR */}
+
+<div className="mobile-search-wrap">
+
+  <div className="mobile-search-bar">
+
+    <span className="mobile-search-icon">
+      🔍
+    </span>
+
+    <input
+      type="text"
+      placeholder="Search coins, topics, people..."
+    />
+
+    <button className="mobile-filter-btn">
+      ☰
+    </button>
+
+  </div>
+
+</div>
+
+{/* CATEGORY TABS */}
+
+<div className="mobile-tabs">
+
+  <button className="mobile-tab active">
+    For You
+  </button>
+
+  <button className="mobile-tab active">
+    Trending
+  </button>
+
+  <button className="mobile-tab active">
+    Following
+  </button>
+
+  <button className="mobile-tab active">
+    IRAM
+  </button>
+
+  <button className="mobile-tab alpha active alpha-tab">
+
+    Alpha
+
+    
+
+  </button>
+
+  <button className="mobile-tab active">
+    News
+  </button>
+
+</div>
+
+{/* CREATE POST CARD */}
+
+<div className="mobile-create-card">
+
+  {/* TOP AREA */}
+
+  <div className="mobile-create-top">
+
+    {/* PROFILE */}
+
+    <img
+      src="/profile.jpg"
+      alt="profile"
+      className="mobile-create-avatar"
+    />
+
+    {/* INPUT */}
+
+    <input
+      type="text"
+      placeholder="What’s on your mind?"
+      className="mobile-create-input"
+    />
+
+  </div>
+
+  {/* BOTTOM AREA */}
+
+  <div className="mobile-create-bottom">
+
+    {/* LEFT ACTIONS */}
+
+    <div className="mobile-create-actions">
+
+      {/* IMAGE */}
+
+      <button className="mobile-action-btn">
+
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M4 5H20V19H4V5Z"
+            stroke="white"
+            strokeWidth="2"
+            rx="2"
+          />
+          <circle
+            cx="9"
+            cy="10"
+            r="2"
+            fill="white"
+          />
+          <path
+            d="M20 16L15 11L6 18"
+            stroke="white"
+            strokeWidth="2"
+          />
+        </svg>
+
+        <span>Image</span>
+
+      </button>
+
+      {/* CHART */}
+
+      <button className="mobile-action-btn">
+
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path
+            d="M5 19V10"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M12 19V5"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+          <path
+            d="M19 19V13"
+            stroke="white"
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+
+        <span>Chart</span>
+
+      </button>
+
+      {/* POLL */}
+
+      <button className="mobile-action-btn">
+
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <rect
+            x="4"
+            y="5"
+            width="6"
+            height="14"
+            stroke="white"
+            strokeWidth="2"
+          />
+
+          <rect
+            x="14"
+            y="10"
+            width="6"
+            height="9"
+            stroke="white"
+            strokeWidth="2"
+          />
+        </svg>
+
+        <span>Poll</span>
+
+      </button>
+
+      {/* AI */}
+
+      <button className="mobile-action-btn ai-btn">
+
+        <span className="ai-icon">
+          ✦
+        </span>
+
+        <span>AI Write</span>
+
+      </button>
+
+    </div>
+
+    {/* POST BUTTON */}
+
+    <button className="mobile-post-btn">
+      Post
+    </button>
+
+  </div>
+
+</div>
+
+<div className="think-big-banner">
+
+  <h2>Think Big Build Big</h2>
+
+</div>
+
+<div className="mobile-empty-feed-card">
+
+  <img
+    src="/pulse-empty.png"
+    alt="pulse"
+    className="mobile-empty-image"
+  />
+
+  <h2 className="mobile-empty-title">
+    Your Pulse Feed is empty
+  </h2>
+
+  <p className="mobile-empty-text">
+    Follow creators, explore trending topics
+    and start engaging with the community.
+  </p>
+
+  <button className="mobile-explore-btn">
+    Explore Trending
+  </button>
+
+</div>
+
+  
+</div>
+
+</>
 );
 }
-

@@ -21,7 +21,11 @@ export default function Sidebar({ open }: { open: boolean }) {
         <li onClick={() => window.location.href='/pulse'}>
   IRAM Pulse
 </li>
-        <li>Daily Tasks</li>
+        <li
+  onClick={() => window.location.href='/daily-tasks'}
+>
+  Daily Tasks
+</li>
         <li>Create Tasks</li>
         <li>Rewards</li>
         <li>Support</li>

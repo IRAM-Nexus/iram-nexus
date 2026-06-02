@@ -3281,7 +3281,7 @@ margin-left: 2px;
 
     background:#0b0b0b;
 
-    border:1px solid #1c1c1c;
+   border:1px solid rgba(255,179,38,0.45);
     border-radius:8px;
 
     padding:12px 14px;
@@ -3619,7 +3619,7 @@ margin-left: 2px;
 
   background:#0b0b0b;
 
-    border:1px solid #1c1c1c;
+    border:1px solid rgba(255,179,38,0.45);
 
   border-radius:8px;
   margin-left: -9.5px;
@@ -3770,17 +3770,18 @@ margin-left: 2px;
   width:89.5%;
   margin-top:-6px;
   margin-left:-9px;
+  height: 195px;
+  
 
   background:#0b0b0b;
-  border:1px solid #1c1c1c;
+ border:1px solid rgba(255,179,38,0.45);
   border-radius:8px;
 
   padding:20px 15px 25px;
 
   text-align:center;
 
-  box-shadow:
-    0 0 25px rgba(255,179,38,0.05);
+  
 }
 
 .mobile-empty-image{
@@ -3810,7 +3811,7 @@ margin-left: 2px;
 }
 
 .mobile-explore-btn{
-  margin-top:22px;
+  margin-top:4px;
 
   height:42px;
   padding:0 22px;
@@ -3878,5 +3879,93 @@ margin-left: 2px;
     0 0 25px #ffb326,
     0 0 50px #ffb326;
 }
+
+.mobile-bottom-nav{
+  width:99%;
+  height:36px;
+
+  position:fixed;
+  bottom:0;
+  left:2px;
+  margin-top: 24px;
+  
+
+  background:#080808;
+
+  border-top:1px solid rgba(255,179,38,0.8);
+
+  box-shadow:
+    0 -1px 0 rgba(255,179,38,0.9),
+    0 -4px 12px rgba(255,179,38,0.35);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+
+  z-index:999;
+
+  box-shadow:
+  0 0 20px rgba(255,179,38,0.4),
+  0 0 40px rgba(255,179,38,0.25),
+  0 0 60px rgba(255,179,38,0.15),
+  inset 0 0 10px rgba(255,179,38,0.1);
+}
+
+.nav-item{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+
+  color:#ffb326;
+
+  text-shadow:
+    0 0 6px rgba(255,179,38,.8),
+    0 0 12px rgba(255,179,38,.5);
+
+  font-size:12px;
+}
+
+.nav-item span{
+  font-size:20px;
+}
+
+.nav-item.active{
+  color:#ffb326;
+}
+
+.nav-center{
+  position:relative;
+  top:-6px;
+}
+
+.pulse-circle{
+  width:30px;
+  height:30px;
+
+  border-radius:50%;
+
+  background:#111;
+
+  border:3px solid #ffb326;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#ffb326;
+  font-size:24px;
+
+  box-shadow:
+  0 0 20px rgba(255,179,38,.6),
+  0 0 50px rgba(255,179,38,.3);
+}
+
+.nav-item p{
+  margin:0;
+  font-size:10px;
+}
+
+
 
 }

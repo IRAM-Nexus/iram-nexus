@@ -14,6 +14,12 @@ import {
   Bell,
   Plus,
   Settings,
+  Home,
+  
+  Gift,
+
+  
+
 } from "lucide-react";
 
 export default function PulsePage() {
@@ -1312,7 +1318,62 @@ export default function PulsePage() {
   </button>
 
 </div>
+<div className="mobile-bottom-nav">
 
+  <div className="nav-item">
+    <Home size={14} />
+    <p>Home</p>
+  </div>
+
+  <div className="nav-item">
+    <Flame size={14} />
+    <p>Trending</p>
+  </div>
+
+  <div className="nav-center">
+
+    <div className="pulse-circle">
+
+      <svg
+        className="bottom-pulse-logo"
+        viewBox="0 0 140 70"
+        fill="none"
+      >
+        <path
+          d="
+          M5 38
+          L20 38
+          L32 38
+          L45 14
+          L58 60
+          L74 4
+          L88 52
+          L100 38
+          L118 38
+          L135 38
+          "
+          stroke="#ffb326"
+          strokeWidth="6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+
+    </div>
+
+  </div>
+
+  <div className="nav-item">
+    <Gift size={14} />
+    <p>Rewards</p>
+  </div>
+
+  <div className="nav-item">
+    <User size={14} />
+    <p>Profile</p>
+  </div>
+
+</div>
   
 </div>
 

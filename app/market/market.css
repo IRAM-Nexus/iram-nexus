@@ -1,0 +1,255 @@
+.marketPage{
+  
+}
+
+.marketHeader{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:12px;
+}
+
+.marketBackArrow{
+  position:absolute;
+  left:8px;
+  color:#f6b93b;
+  font-size:26px;
+  cursor:pointer;
+  top: -3px;
+}
+
+.marketTitle{
+ color:#d4d4d4;
+  font-size:18px;
+  font-weight:700;
+  margin-top: 4px;
+  position: relative;
+}
+
+.marketHeaderRight{
+  position: absolute;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  top: 7px;
+}
+
+.marketHeaderIcon{
+  font-size: 16px;
+  color: #d4a017;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.marketHeaderIcon:hover{
+  color: #f6c453;
+  transform: scale(1.1);
+}
+
+
+.marketCard{
+  
+  height: 80px;
+  margin-top: -24px;
+
+  background: #000000;
+
+  border: 1px solid rgba(212,160,23,0.25);
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 0 15px rgba(212,160,23,0.08);
+
+  position: relative;
+}
+
+.marketCardTop{
+  display: flex;
+  align-items: flex-start;
+  padding: 14px;
+}
+
+.marketTokenLogo{
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  position: relative;
+  left: -8px;
+  top: -8px;
+}
+
+.marketPairInfo{
+  margin-left:42px;
+}
+
+.marketPairName{
+  color:#d4d4d4;
+  font-size:12px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top: -55px;
+}
+
+.marketDropdown{
+  color:#d4a017;
+  font-size:16px;
+  margin-top: -10px;
+}
+
+.marketProjectName{
+  margin-top:2px;
+  color:#d4a017;
+  font-size:10px;
+}
+
+.marketTopRow{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 18px;
+}
+
+.marketLeftSide{
+  display:flex;
+  align-items:center;
+}
+
+.marketTopRight{
+  text-align:right;
+  left: -9px;
+  position: relative;
+  margin-top: -26px;
+}
+
+.marketPrice{
+  color:#d4d4d4;
+  font-size:12px;
+  font-weight:700;
+  line-height:1;
+}
+
+.marketUsdPrice{
+  color:#9c9c9c;
+  font-size:9px;
+  margin-top:6px;
+}
+
+.marketStatItem{
+  flex: 1;
+  text-align: center;
+  margin-left: -280px;
+  margin-top: 10px;
+}
+
+.marketStatLabel{
+  display: block;
+  color: #9b9b9b;
+  font-size: 10px;
+  margin-bottom: 2px;
+}
+
+.marketStatValue{
+  color:#d4d4d4;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.market24hLow{
+  display:flex;
+  flex-direction:column;
+  margin-top: -35px;
+  margin-left: 50px;
+}
+
+.market24hLowLabel{
+  color:#8e8e8e;
+  font-size:10px;
+  margin-top:4px;
+}
+
+.market24hLowValue{
+  margin-top:7px;
+  color:#d4d4d4;
+  font-size:9px;
+  font-weight:600;
+  margin-left: -4px;
+}
+
+.market24hVolume{
+  display:flex;
+  flex-direction:column;
+  margin-left: 120px;
+  position: relative;
+  margin-top: -28px;
+}
+
+.market24hVolumeLabel{
+  color:#8e8e8e;
+  font-size:10px;
+}
+
+.market24hVolumeValue{
+  margin-top:8px;
+  color:#d4d4d4;
+  font-size:9px;
+  font-weight:600;
+  margin-left: 22px;
+}
+
+.marketCapBox{
+  display:flex;
+  flex-direction:column;
+  margin-left: 200px;
+  margin-top: -29px;
+}
+
+.marketCapLabel{
+  color:#8e8e8e;
+  font-size:10px;
+}
+
+.marketCapValue{
+  margin-top:8px;
+  color:#d4d4d4;
+  font-size:9px;
+  font-weight:600;
+  margin-left: 9px;
+}
+
+
+.marketChartCard{
+width: 115.5%;
+  height:440px;
+  border-radius:10px;
+  overflow:hidden;
+  margin-left: -42px;
+  margin-top: 8px;
+}
+
+.marketChartFrame{
+  width:100%;
+  height:90%;
+  border:none;
+}
+
+.tradeIramBtn{
+  width:100%;
+  height:42px;
+
+  border:none;
+  position: relative;
+
+  background:#d4a017;
+  top: -2px;
+
+  color:#000;
+  font-size:16px;
+  font-weight:700;
+
+  cursor:pointer;
+}

@@ -1,0 +1,82 @@
+.taskCenterHeader{
+  position:relative;
+  width:100%;
+}
+
+.taskCenterBackBtn{
+  position:absolute;
+
+  top:-3px;
+  left:1px;
+
+  background:none;
+  border:none;
+
+  color:#e9ac34;
+
+  font-size:25px;
+
+  cursor:pointer;
+}
+
+.taskCenterTitle{
+  position:absolute;
+
+  top:6px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  color:#e9ac34;
+
+  font-size:16px;
+  font-weight:700;
+
+  margin:0;
+}
+
+.taskGuideBtn{
+  position:absolute;
+  top:5px;
+  right:6px;
+
+  height:20px;
+
+  padding:0 4px;
+
+  border:1px solid rgba(245,199,107,0.35);
+  border-radius:6px;
+
+  background:rgba(20,20,20,0.85);
+
+  color:#f5c76b;
+
+  display:flex;
+  align-items:center;
+  gap:4px;
+
+  font-size:8px;
+  font-weight:600;
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 8px rgba(245,199,107,0.12);
+}
+
+.guideIcon{
+  width:10px;
+  height:10px;
+
+  border:1px solid #f5c76b;
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center; 
+
+  font-size:9px;
+  font-weight:700;
+
+  color:#f5c76b;
+}

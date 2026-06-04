@@ -26,7 +26,7 @@ export default function Sidebar({ open }: { open: boolean }) {
 >
   Daily Tasks
 </li>
-        <li>Create Tasks</li>
+        <li>Compaings / Events</li>
         <li>Rewards</li>
         <li>Support</li>
         <li>Policy</li>

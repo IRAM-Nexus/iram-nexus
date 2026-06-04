@@ -33,10 +33,15 @@ export default function DailyTasks() {
         Daily Tasks
       </div>
 
-      <button className="taskGuideBtn">
-        <span>Task Guide</span>
-        <span className="guideIcon">?</span>
-      </button>
+      <button
+  className="taskGuideBtn"
+  onClick={() =>
+    router.push("/daily-tasks/task-guide")
+  }
+>
+  <span>Task Guide</span>
+  <span className="guideIcon">?</span>
+</button>
 
       <div className="heroCard">
   <img
@@ -323,10 +328,13 @@ export default function DailyTasks() {
   <span className="dailyTaskPulseText">
     Pulse
   </span>
-
 </div>
-
-<div className="dailyTasksNavItem">
+<div
+  className="dailyTasksNavItem"
+  onClick={() =>
+    router.push("/daily-tasks/task-center")
+  }
+>
 
   <ClipboardList className="dailyTasksNavIcon" />
 
@@ -335,7 +343,6 @@ export default function DailyTasks() {
   </span>
 
 </div>
-
 <div className="dailyNavProfile">
 
   <UserRound className="dailyNavProfileIcon" />

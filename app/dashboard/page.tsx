@@ -126,7 +126,7 @@ const connectMetaMask = async () => {
  
       <div className="prize-card">
         <div className="prize-title">PRIZE POOL</div>
-        <h2 className="prize-amount">$10,000.00</h2>
+        <h2 className="prize-amount">$100,000.00</h2>
       </div>
       <div className="balance-bar">
     Balance:

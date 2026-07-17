@@ -2,7 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ===================================================
+   RESET / BASE
+=================================================== */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
 
+body {
+  margin: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(255,140,0,0.25), transparent 60%),
+              radial-gradient(circle at 80% 70%, rgba(255,180,0,0.2), transparent 60%),
+              linear-gradient(135deg, #0a0a0a 0%, #1a0d05 50%, #000000 100%);
+  color: white;
+  font-family: Arial, sans-serif;
+  overscroll-behavior: none;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 640px) {
+  .container,
+  .main,
+  .dashboard {
+    overflow-x: hidden;
+  }
+}
+
+/* ===================================================
+   INTRO SCREEN
+=================================================== */
 @keyframes zoomIn {
   0% {
     transform: scale(0.3);
@@ -16,56 +52,8 @@
 
 .animate-zoomIn {
   animation: zoomIn 2s ease-out forwards;
-}.intro-wrapper {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 80px;
-}
-.intro-title {
-  font-size: 46px;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ffd700, #ffb700, #ff8c00);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
-  text-shadow: 0 0 10px rgba(255, 200, 0, 0.6),
-               0 0 20px rgba(255, 170, 0, 0.5),
-               0 0 40px rgba(255, 140, 0, 0.4);             
-}
-.intro-subtitle {
-  font-size: 18px;
-  background: linear-gradient(90deg, #ffd700, #ffb700);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-
-  text-shadow: 0 0 8px rgba(255, 200, 0, 0.5);
-}
-/* tablet */
-@media (min-width: 768px) {
-  .intro-title {
-    font-size: 64px;
-  }
-
-  .intro-subtitle {
-    font-size: 22px;
-  }
 }
 
-/* desktop */
-@media (min-width: 1024px) {
-  .intro-title {
-    font-size: 80px;
-  }
-
-  .intro-subtitle {
-    font-size: 26px;
-  }
-}
 .intro-wrapper {
   position: fixed;
   inset: 0;
@@ -81,37 +69,60 @@
               linear-gradient(135deg, #0a0a0a 0%, #1a0d05 50%, #000000 100%);
 }
 
+.intro-title {
+  font-size: 46px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ffd700, #ffb700, #ff8c00);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 
-/* ===== FINAL INTRO DESIGN LOCKED ===== */
-/* Iske upar ka code change na karein */
-
-
-
-
-
-
-
-
-
-
-body {
-  margin: 0;
-  background: radial-gradient(circle at 50% 30%, rgba(255,140,0,0.25), transparent 60%),
-              radial-gradient(circle at 80% 70%, rgba(255,180,0,0.2), transparent 60%),
-              linear-gradient(135deg, #0a0a0a 0%, #1a0d05 50%, #000000 100%);
-  color: white;
-  font-family: Arial, sans-serif;
+  text-shadow: 0 0 10px rgba(255, 200, 0, 0.6),
+               0 0 20px rgba(255, 170, 0, 0.5),
+               0 0 40px rgba(255, 140, 0, 0.4);
 }
+
+.intro-subtitle {
+  font-size: 18px;
+  background: linear-gradient(90deg, #ffd700, #ffb700);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+
+  text-shadow: 0 0 8px rgba(255, 200, 0, 0.5);
+}
+
+@media (min-width: 768px) {
+  .intro-title { font-size: 64px; }
+  .intro-subtitle { font-size: 22px; }
+}
+
+@media (min-width: 1024px) {
+  .intro-title { font-size: 80px; }
+  .intro-subtitle { font-size: 26px; }
+}
+
+/* ===================================================
+   TOP BAR
+=================================================== */
 .top-bar {
-  position:relative;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .top-bar::after {
   content: "";
   position: absolute;
 
-  left: 250px;   /* sidebar ki width jitni hai */
-  right: 20px;   /* right side gap */
+  left: 250px;   /* sidebar width */
+  right: 20px;
 
   bottom: 2px;
   height: 1px;
@@ -134,19 +145,18 @@ body {
   }
 }
 
-
 @media (min-width: 768px) and (max-width: 1023px) {
   .top-bar::after {
-    bottom: -12px;   /* thora neeche */
+    bottom: -12px;
+  }
+  .top-bar {
+    left: 260px;
   }
 }
 
-
-
-
-
-
-
+/* ===================================================
+   LOGO
+=================================================== */
 .logo {
   font-size: 16px;
   font-weight: bold;
@@ -158,74 +168,28 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-/* Tablet */
-@media (min-width: 640px) {
-  .logo {
-    font-size: 28px;
-  }
-}
-/* Desktop */
-@media (min-width: 1024px) {
-  .logo {
-    font-size: 40px;
-  }
-}
-
-@media (min-width: 768px) {
-  .logo {
-    margin-left: 260px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .logo {
-    margin-left: 260px;
-    
-
-  }
-}
 
 @media (max-width: 640px) {
   .logo {
-    left: -50px;   /* 👈 is value ko adjust karna */
+    left: -50px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .top-bar {
-    left: 260px;
-  }
+@media (min-width: 640px) {
+  .logo { font-size: 28px; }
 }
 
-
-
-
-
-
-
-
-
-
-
-/* ===== FINAL IRAM NEXUS LOGO DASHBOARD ===== */
-/* Iske upar ka code change na karein */
-
-
-
-
-
-
-.top-bar {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@media (min-width: 768px) {
+  .logo { margin-left: 260px; }
 }
 
+@media (min-width: 1024px) {
+  .logo { font-size: 40px; }
+}
+
+/* ===================================================
+   CONNECT WALLET BUTTON
+=================================================== */
 .connect-btn {
   padding: 4px 20px;
   font-size: 12px;
@@ -235,14 +199,20 @@ body {
   background: linear-gradient(180deg, rgba(255,180,0,0.15), rgba(0,0,0,0.6));
   color: #f5c16c;
   box-shadow: 0 0 10px rgba(255,180,0,0.4);
-  transition: all 0.3s ease;  
+  transition: all 0.3s ease;
 }
 
 .connect-btn:hover {
-  transform: translateY(-2px); /* halka upar move */
-
+  transform: translateY(-2px);
   background: linear-gradient(180deg, rgba(255,200,0,0.3), rgba(0,0,0,0.7));
   box-shadow: 0 0 15px rgba(255,200,0,0.6);
+}
+
+@media (max-width: 639px) {
+  .connect-btn {
+    position: relative;
+    left: 12px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -259,29 +229,22 @@ body {
   }
 }
 
-@media (max-width: 639px) {
-  .connect-btn {
-    position: relative;
-    left: 12px;
-  }
+/* ===================================================
+   PRIZE CARD
+   (visible on all breakpoints, restyled per size)
+=================================================== */
+.main-container {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
 }
 
-
-
-
-
-/* ===== FINAL CONNECT WALLET BUTTON DASHBOARD ===== */
-/* Iske upar ka code change na karein */
-
-
-
-
-
-
-
-
 .prize-card {
-  margin-top: 70px ;
+  display: block;
+  margin-top: 70px;
   padding: 10px;
   width: 240px;
 
@@ -290,67 +253,17 @@ body {
 
   background: linear-gradient(180deg, rgba(255,180,0,0.15), rgba(0,0,0,0.7));
   box-shadow:
-  0 0 15px rgba(250, 163, 48, 0.4),
-  0 6px 12px rgba(233, 199, 7, 0.6);
+    0 0 15px rgba(250, 163, 48, 0.4),
+    0 6px 12px rgba(233, 199, 7, 0.6);
   animation: glowPulse 3s ease-in-out infinite;
 
   text-align: center;
 }
 
-@media (max-width: 639px) {
-  .prize-card {
-    margin-left: 28px;
-  }
-}
-
-@media (min-width: 768px) {
-  .prize-card {
-    display: none;
-  }
-}
-
-.prize-title {
-  font-size: 12px;
-  color: #f5c16c;
-  margin-bottom: 10px;
-}
-
-.prize-amount {
-  font-size: 24px;
-  font-weight: 500;
-  margin-top: 2px;
-  font-family: 'Georgia', serif;
-  color: #fff5d0;
-  text-shadow: 0 0 10px rgba(255, 220, 120, 0.6);
-}
-
-.main-container {
-  min-height: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;   /* horizontal center */
-  justify-content: flex-start;
-  position: relative; 
-}
-
-/* Default (mobile) → show */
-.prize-card {
-  display: block;
-}
-
-/* Tablet + Desktop → hide */
-
-
 @keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 8px rgba(255, 170, 60, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(255, 180, 80, 0.9);
-  }
-  100% {
-    box-shadow: 0 0 8px rgba(255, 170, 60, 0.3);
-  }
+  0% { box-shadow: 0 0 8px rgba(255, 170, 60, 0.3); }
+  50% { box-shadow: 0 0 25px rgba(255, 180, 80, 0.9); }
+  100% { box-shadow: 0 0 8px rgba(255, 170, 60, 0.3); }
 }
 
 .prize-title {
@@ -369,49 +282,32 @@ body {
   box-shadow: 0 0 10px rgba(255, 180, 80, 0.4);
 }
 
-@media (min-width: 768px) {
-  .prize-card {
-    width: 550px;
-    padding: 10px 20px;
-    margin-top: 20px;
-    align-self: center;
-  }
+.prize-amount {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 2px;
+  font-family: 'Georgia', serif;
+  color: #fff5d0;
+  text-shadow: 0 0 10px rgba(255, 220, 120, 0.6);
 }
 
-@media (min-width: 768px) {
+@media (max-width: 639px) {
   .prize-card {
-    position: absolute;
-    top: 120px;     /* adjust karenge baad mein */
-    left: 43%;
-    transform: translateX(-50%);
-  }
-}
-
-@media (min-width: 768px) {
-  .prize-title {
-    font-size: 18px;   /* pehle 12px tha */
-    padding: 8px 30px;
-  }
-
-  .prize-amount {
-    font-size: 36px;   /* pehle 24px tha */
-    margin-top: 8px;
+    margin-left: 28px;
   }
 }
 
 @media (min-width: 640px) and (max-width: 1023px) {
   .prize-card {
     position: absolute;
-    top: 100px;   /* adjust kar lena */
+    top: 100px;
     left: 53%;
     transform: translateX(-50%);
 
     width: 280px;
     padding: 16px 18px;
   }
-}
 
-@media (min-width: 640px) and (max-width: 1023px) {
   .prize-title {
     font-size: 12px;
     padding: 8px 16px;
@@ -423,42 +319,38 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  .prize-card {
+    width: 550px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    align-self: center;
 
+    position: absolute;
+    top: 120px;
+    left: 43%;
+    transform: translateX(-50%);
+  }
 
+  .prize-title {
+    font-size: 18px;
+    padding: 8px 30px;
+  }
 
+  .prize-amount {
+    font-size: 36px;
+    margin-top: 8px;
+  }
+}
 
-
-
-
-
-
-/* ===== FINAL PRIZE CARD DASHBOARD ===== */
-/* Iske upar ka code change na karein */
-
-
-
-
-
-
-
-
-
-
+/* ===================================================
+   PROFILE ICON
+=================================================== */
 .profile-icon {
   display: flex;
   align-items: center;
   gap: 10px;
-
   padding: 15px 20px;
-}
-
-.profile-icon img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-
-  border: 2px solid #f5c16c;
-  box-shadow: 0 0 10px rgba(255,180,80,0.6);
 }
 
 .profile-icon img {
@@ -466,37 +358,20 @@ body {
   height: 50px;
   border-radius: 50%;
   border: 2px solid #f5c16c;
+  box-shadow: 0 0 10px rgba(255,180,80,0.6);
 }
 
 @media (min-width: 768px) {
   .profile-icon {
     position: absolute;
-    top: 10px;     /* yahan adjust karo */
-    left: 15px;    /* thora andar lane ke liye */
+    top: 10px;
+    left: 15px;
   }
 }
 
-
-
-
-
-
-
-
-/* ===== FINAL PROFILE ICON DASHBOARD ===== */
-/* Iske upar ka code change na karein */
-
-
-
-
-
-
-
-
-
-
-
-
+/* ===================================================
+   DIVIDER
+=================================================== */
 .divider {
   width: 85%;
   height: 1px;
@@ -506,14 +381,54 @@ body {
   box-shadow: 0 0 10px rgba(255,180,80,0.7);
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 767px) {
   .divider {
-    margin: 100px auto 20px;   /* value adjust karo */
+    margin-top: 9px;
   }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .divider {
+    transform: translateY(12px);
+  }
+}
 
+@media (min-width: 1024px) {
+  .divider {
+    margin: 100px auto 20px;
+  }
+}
 
+/* ===================================================
+   SIDEBAR + MENU
+=================================================== */
+.sidebar {
+  width: 230px;
+  height: 100vh;
+  position: relative;
+  left: 0;
+  align-items: flex-start;
+
+  background: linear-gradient(180deg, rgba(30,15,5,0.95), rgba(10,5,2,0.95));
+  border-right: 1px solid rgba(255, 180, 80, 0.3);
+
+  box-shadow:
+    0 0 30px rgba(255, 150, 50, 0.2),
+    inset 0 0 20px rgba(255, 150, 50, 0.05);
+
+  backdrop-filter: blur(12px);
+
+  z-index: 1001;
+  margin-top: 0;
+
+  /* off-canvas show/hide (single system) */
+  transform: translateX(-100%);
+  transition: 0.3s;
+}
+
+.sidebar.show {
+  transform: translateX(0);
+}
 
 .menu li {
   display: flex;
@@ -528,20 +443,18 @@ body {
 
   border-radius: 10px;
   transition: 0.3s;
-  border-bottom: 1px solid rgba(255, 180, 80, 0.2); /* 👈 ye add karo */
+  border-bottom: 1px solid rgba(255, 180, 80, 0.2);
+
+  position: relative;
 }
 
 .menu li:hover {
   background: rgba(255, 180, 80, 0.08);
   box-shadow: 0 0 12px rgba(255, 180, 80, 0.25);
   color: #f5c16c;
-  text-shadow: 
+  text-shadow:
     0 0 8px rgba(255, 200, 100, 1),
     0 0 16px rgba(255, 180, 80, 0.8);
-}
-
-.menu li {
-  position: relative;
 }
 
 .menu li::after {
@@ -556,166 +469,11 @@ body {
   box-shadow: 0 0 6px rgba(255,180,80,0.6);
 }
 
-.sidebar {
-  width: 230px;
-  height: 100vh;
-  position: relative;
-  align-items: flex-start;
-  
-  left: 0;
-
-  background: linear-gradient(180deg, rgba(30,15,5,0.95), rgba(10,5,2,0.95));
-  border-right: 1px solid rgba(255, 180, 80, 0.3);
-
-  box-shadow: 
-    0 0 30px rgba(255, 150, 50, 0.2),
-    inset 0 0 20px rgba(255, 150, 50, 0.05);
-
-  backdrop-filter: blur(12px);
-
-  
-}
-
-
-
-
-
-
-
-/* Tablet + Desktop */
-@media (min-width: 768px) {
-  .sidebar {
-    display: block !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  .divider {
-    transform: translateY(12px);
-  }
-}
-
-
-/* ===== MOBILE ===== */
-@media (max-width: 767px) {
-  .sidebar {
-    margin-top: -10px; /* mobile adjust */
-  }
-}
-@media (max-width: 767px) {
-  .sidebar {
-    position: fixed !important;
-    top: 0 !important;
-    left: -250px;
-    width: 250px;
-    height: 100vh;
-    z-index: 1001;
-    transition: 0.3s;
-  }
-
-  .sidebar.show {
-    left: 0;
-  }
-}
-.sidebar {
-  margin-top: 0 !important;
-}
-
-
-
-
-
-
-/* ===== TABLET ===== */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .sidebar {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    top: 0;
-    position: fixed;
-    height: 100vh;
-    overflow-y: hidden;
-  }
-}
-
-/* ===== DESKTOP ===== */
-@media (min-width: 1024px) {
-  .sidebar {
-    margin-top: -4px; /* desktop clean */
-  }
-}
-
-
-
-
-
-
-/* ===== FINAL SIDEBAR DASHBOARD ===== */
-/* Iske upar ka code change na karein */
-
-
-
-
-
-
-
-
-
 .menu-icon {
   position: relative;
   left: -8px;
   top: -3px;
   font-size: 18px;
-}
-
-@media (min-width: 768px) {
-  .menu-icon {
-    display: none;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-.sidebar {
-  transform: translateX(-100%);
-  transition: 0.3s;
-}
-
-.sidebar.show {
-  transform: translateX(0);
-}
-
-@media (min-width: 768px) {
-  .sidebar {
-    transform: translateX(0);
-  }
-}
-
-
-
-@media (max-width: 767px) {
-  .sidebar {
-    top: -180px;
-    padding-top: 0px;
-  }
-}
-
-.profile-icon {
-  margin-top: 0px;
-}
-
-@media (max-width: 767px) {
-  .divider {
-    margin-top: 9px;
-  }
 }
 
 .overlay {
@@ -728,18 +486,48 @@ body {
   z-index: 1000;
 }
 
-.sidebar {
-  z-index: 1001;
+/* Mobile: fixed off-canvas drawer */
+@media (max-width: 767px) {
+  .sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    width: 250px;
+    height: 100vh;
+  }
 }
 
+/* Tablet: fixed, always visible */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidebar {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    margin-top: 0;
+    padding-top: 0;
+    height: 100vh;
+    overflow-y: hidden;
+    transform: translateX(0);
+  }
+}
 
+/* Desktop: static, always visible */
+@media (min-width: 1024px) {
+  .sidebar {
+    display: block !important;
+    margin-top: -4px;
+    transform: translateX(0);
+  }
+}
 
+@media (min-width: 768px) {
+  .menu-icon {
+    display: none;
+  }
+}
 
-
-
-
-
-
+/* ===================================================
+   BALANCE BAR
+=================================================== */
 .balance-bar {
   display: block;
   width: 100%;
@@ -748,9 +536,8 @@ body {
 
   font-size: 13px;
   color: #e6c27a;
-    opacity: 0.9;
-    text-shadow: 0 0 6px rgba(255, 200, 100, 0.4);
-
+  opacity: 0.9;
+  text-shadow: 0 0 6px rgba(255, 200, 100, 0.4);
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -758,37 +545,20 @@ body {
     margin-top: 260px;
     font-size: 16px;
     transform: translateX(23px);
-
-    color: #e6c27a;
-    opacity: 0.9;
-    text-shadow: 0 0 6px rgba(255, 200, 100, 0.4);
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  body {
-    overflow-x: hidden;
   }
 }
 
 @media (min-width: 1024px) {
   .balance-bar {
     margin-top: -339px;
-    font-size: 23px;
     margin-left: -95px;
-    color: #e6c27a;
-    opacity: 0.9;
-    text-shadow: 0 0 6px rgba(255, 200, 100, 0.4);
+    font-size: 23px;
   }
 }
 
-
-
-
-
-
-
-
+/* ===================================================
+   FOLLOW / TELEGRAM CARDS
+=================================================== */
 .follow-card {
   display: flex;
   justify-content: space-between;
@@ -807,28 +577,26 @@ body {
   box-shadow: 0 0 10px rgba(97, 72, 12, 0.4);
   transition: all 0.3s ease;
 }
+
 .follow-left {
   display: flex;
   align-items: center;
-  gap: 6px;   /* Follow aur X ka gap */
+  gap: 6px;
+  color: #f5c16c;
 }
 
 .follow-right {
   display: flex;
   align-items: center;
-  gap: 12px;  /* 5 IRAM aur Claim ka gap */
+  gap: 12px;
+}
+
+.follow-right span {
+  color: #f5c16c;
 }
 
 .x-text {
   font-weight: bold;
-}
-
-.follow-right {
-  display: flex;
-  align-items: center;
-}
-
-.x-text {
   margin-right: 6px;
 }
 
@@ -854,15 +622,14 @@ body {
   box-shadow: 0 0 8px rgba(255,180,0,0.4);
   transition: all 0.3s ease;
 }
+
 .claim-btn:hover {
   transform: translateY(-2px);
-
   background: linear-gradient(
     180deg,
     rgba(255,200,0,0.3),
     rgba(0,0,0,0.7)
   );
-
   box-shadow: 0 0 15px rgba(255,200,0,0.6);
 }
 
@@ -870,52 +637,26 @@ body {
   transform: scale(0.95);
 }
 
+.telegram-card {
+  margin-top: 10px;
+}
+
 @media (max-width: 640px) {
   .follow-card {
-    transform: translateX(20px); /* 👈 yahan value adjust kar sakte ho */
+    transform: translateX(20px);
     padding: 4px 40px;
     font-size: 16px;
   }
 }
-.follow-left,
-.follow-right span {
-  color: #f5c16c;  /* 👈 gold color */
-}
-
-@media (max-width: 640px) {
-  .container,
-  .main,
-  .dashboard {
-    overflow-x: hidden;
-  }
-
-
-
-}
-
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  overscroll-behavior: none;
-
-}
-
 
 @media (min-width: 640px) and (max-width: 1024px) {
   .follow-card {
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 32%;
     padding: 6px 24px;
     transform: translateX(24px);
   }
-
 }
 
 @media (min-width: 1024px) {
@@ -923,326 +664,73 @@ body {
     width: 41%;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     transform: translateX(-95px);
   }
-
 }
 
-
-
-
-.telegram-card {
-  margin-top: 10px;
+/* ===================================================
+   WALLET MODAL
+=================================================== */
+.wallet-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
 }
 
-
-
-
-html,
-body{width: 100%;
-overflow-x:hidden;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* WALLET MODAL */
-
-.wallet-modal{
-
-  position:fixed;
-
-  inset:0;
-
-  background:rgba(0,0,0,0.75);
-
-  backdrop-filter:blur(8px);
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  z-index:9999;
+.wallet-box {
+  width: 360px;
+  padding: 28px;
+  border-radius: 24px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255,180,70,0.35);
+  box-shadow: 0 0 30px rgba(255,170,0,0.18);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.wallet-box{
-
-  width:360px;
-
-  padding:28px;
-
-  border-radius:24px;
-
-  background:#0b0b0b;
-
-  border:1px solid rgba(255,180,70,0.35);
-
-  box-shadow:
-  0 0 30px rgba(255,170,0,0.18);
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:16px;
+.wallet-box h2 {
+  color: #ffcc66;
+  text-align: center;
 }
 
-.wallet-box h2{
-
-  color:#ffcc66;
-
-  text-align:center;
+.wallet-option {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,180,70,0.25);
+  background: rgba(255,140,0,0.05);
+  color: #f5f5f5;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.wallet-option{
-
-  width:100%;
-
-  padding:14px;
-
-  border-radius:16px;
-
-  border:1px solid rgba(255,180,70,0.25);
-
-  background:rgba(255,140,0,0.05);
-
-  color:#f5f5f5;
-
-  font-size:16px;
-
-  cursor:pointer;
-
-  transition:0.3s;
+.wallet-option:hover {
+  transform: translateY(-2px);
+  border-color: #ffbf47;
+  box-shadow: 0 0 18px rgba(255,170,0,0.18);
 }
 
-.wallet-option:hover{
-
-  transform:translateY(-2px);
-
-  border-color:#ffbf47;
-
-  box-shadow:
-  0 0 18px rgba(255,170,0,0.18);
+.close-wallet {
+  padding: 12px;
+  border: none;
+  border-radius: 14px;
+  background: #1a1a1a;
+  color: white;
+  cursor: pointer;
 }
 
-.close-wallet{
-
-  padding:12px;
-
-  border:none;
-
-  border-radius:14px;
-
-  background:#1a1a1a;
-
-  color:white;
-
-  cursor:pointer;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== WEB3MODAL SCROLL FIX ===== */
-
-w3m-modal::part(content) {
-  max-height: 85vh !important;
-  overflow-y: auto !important;
-}
-
-w3m-modal::part(content)::-webkit-scrollbar {
-  width: 4px;
-}
-
-w3m-modal::part(content)::-webkit-scrollbar-thumb {
-  background: #f5c16c;
-  border-radius: 20px;
-}
-
-/* Mobile fix */
-@media (max-height: 800px) {
-  w3m-modal::part(content) {
-    max-height: 75vh !important;
-  }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* ===================================================
+   WEB3MODAL SCROLL FIX
+=================================================== */
 w3m-modal {
   --w3m-modal-border-radius: 20px;
-}
-
-w3m-modal::part(content) {
-  max-height: 80vh !important;
-  overflow-y: auto !important;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== WEB3MODAL FULL SCROLL FIX ===== */
-
-w3m-modal {
   z-index: 999999 !important;
 }
 
@@ -1262,58 +750,24 @@ w3m-modal::part(content)::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 
-/* Wallet list */
 wui-flex {
   overflow-y: auto !important;
   max-height: 70vh !important;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   w3m-modal::part(content) {
     height: 75vh !important;
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===== DESKTOP/TABLET WALLET SCROLL FIX ===== */
+@media (max-height: 800px) {
+  w3m-modal::part(content) {
+    max-height: 75vh !important;
+  }
+}
 
 @media (min-width: 768px) {
-
   w3m-modal::part(content) {
     height: 85vh !important;
     max-height: 85vh !important;
@@ -1325,14 +779,8 @@ wui-flex {
     overflow-y: auto !important;
   }
 
-  /* Main wallet list */
   .w3m-modal-content {
     overflow-y: auto !important;
     max-height: 80vh !important;
   }
-
 }
-
-
-
-
